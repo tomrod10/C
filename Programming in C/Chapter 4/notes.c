@@ -34,7 +34,7 @@ int int_type()
 
     // To express integers in this form it needs to be preceded by a 0 and have values [0-7]
     int forty = 40; // 050 = (5 x 8 + 0) Remember, right-to-left: 8^n + 8^2 + 8^1 + 8^0
-                    // So... (8^1 x 5 + 8^0 x 5) ---> (40 + 0) equals 40 in decimal
+                    // So... (8^1 x 5 + 8^0 x 0) ---> (40 + 0) equals 40 in decimal
 
     int hundred_twenty_seven = 127; // 0177 = (8^2 x 1 + 8^1 x 7 + 8^0 x 7) ---> (64 x 1 + 8 x 7 + 1 x 7) = 127
 
@@ -157,8 +157,8 @@ int arithmetic()
     float res1 = half * two;
     int res2 = half * two;
 
-    printf("float %f times int %i = %f\n", half, two, res1);
-    printf("float %f times int %i = %i\n", two, half, res2);
+    printf("float %.1f times int %i = %f\n", half, two, res1);
+    printf("float %.1f times int %i = %i\n", two, half, res2);
 
     return 0;
 };
