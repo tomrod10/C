@@ -60,6 +60,9 @@ int int_type()
 
 /*
 [Float Number Type]
+
+The range of float, double and long (type specifier) will vary
+on the computer system you're on!
 */
 int float_type()
 {
@@ -74,18 +77,88 @@ int float_type()
     printf("Floating number in scientific notation: %e\n", example_4);
 
     float short_pi = 3.14f; // explicitly express a float constant by appending f or F
+    printf("%s\n", SPACER);
 
     return 0;
 }
 
 /*
 [Char Data Type]
+- Formed by a pair single quotes
 */
 int char_type()
 {
     char letter_g = 'g';
     char number_1 = '1';
-    char newline = '\n';
+
+    printf("Letter g as a char: %c\n", letter_g);
+    printf("1 as a char: %c\n", number_1);
+    printf("the newline symbol \\n counts as one char\n");
+    printf("%s\n", SPACER);
+
+    return 0;
+};
+
+/*
+[Boolean Data Type]
+- Also known as _Bool in C
+- 0 = false, 1 = true
+- <std.bool.h> defines true and false for convenience
+*/
+int bool_type()
+{
+    _Bool bool_false = 0;
+    _Bool bool_true = 1;
+
+    printf("false is: %i\n", bool_false);
+    printf("true is: %i\n", bool_true);
+    printf("%s\n", SPACER);
+}
+
+/*
+[Type Specifier]
+- long
+- long long
+- short
+- unsigned
+- signed
+
+- Using type specified suffixes allows for precise control
+  over how constant values are stored in memory and help prevent
+  memory overflow.
+
+- When declaring variables with these types specifiers the
+  keyword int can be omitted.
+
+- Smallest to biggest:
+  short > int > unsigned > long
+  > unsigned long > long long > unsigned long long
+*/
+int type_specifiers()
+{
+    long int big_number = 131071100L;                 // L or l at the end makes it constant value (4 - 8 bytes)
+    long long bigger_number = 131071100000LL;         // At least 64 bits
+    short int short_age = 22;                         // Not less than 2 bytes or 16 bits
+    unsigned int basketballs = 10;                    // Only positive numbers including zero
+    unsigned long big_big_number = 131071100000000UL; // You can combine suffixes
+
+    printf("long int constant: %li\n", big_number);
+    printf("long long: %lli\n", bigger_number);
+    printf("short int: %hi\n", short_age);
+    printf("unsigned int: %u\n", basketballs);
+
+    return 0;
+}
+
+int arithmetic()
+{
+    float half = 0.5;
+    int two = 2;
+    float res1 = half * two;
+    int res2 = half * two;
+
+    printf("float %f times int %i = %f\n", half, two, res1);
+    printf("float %f times int %i = %i\n", two, half, res2);
 
     return 0;
 };
@@ -94,5 +167,9 @@ int main(void)
 {
     int_type();
     float_type();
+    char_type();
+    bool_type();
+    type_specifiers();
+    arithmetic();
     return 0;
 }
