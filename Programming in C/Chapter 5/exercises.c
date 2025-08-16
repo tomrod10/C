@@ -98,6 +98,7 @@ in a print statement.
 */
 int usd_formatter()
 {
+    printf("====[Exercise 7]====\n");
     int dollars, cents, count;
 
     for (count = 1; count <= 10; count++)
@@ -118,6 +119,7 @@ do not cap user to enter 5 numbers per program invocation
 */
 int get_triangular_v2()
 {
+    printf("====[Exercise 8]====\n");
     int n, number, triangularNumber;
 
     while (1)
@@ -141,6 +143,8 @@ int get_triangular_v2()
 
 int get_triangular_v3()
 {
+    printf("====[Exercise 9]====\n");
+
     int n, number, triangularNumber;
     printf("What triangular number do you want? ");
     scanf("%i", &number);
@@ -156,6 +160,82 @@ int get_triangular_v3()
     printf("Triangular number %i is %i\n\n", number, triangularNumber);
 }
 
+int get_200th_triangular_num_v2()
+{
+    int n, triangularNumber;
+    triangularNumber = 0;
+    n = 1;
+
+    while (n <= 200)
+    {
+        triangularNumber += n;
+        n++;
+    }
+
+    printf("The 200th triangular number is %i\n", triangularNumber);
+    return 0;
+};
+
+/*
+10- What would happen if type a negative
+number in program 5.8? Try it!
+
+It adds the negative sign to the left
+of every digit in the input number.
+*/
+
+int reverse_digits()
+{
+    printf("====[Exercise 10]====\n");
+    int number, right_digit;
+
+    printf("Enter your number.\n");
+    scanf("%i", &number);
+
+    while (number != 0)
+    {
+        right_digit = number % 10;
+        printf("%i", right_digit);
+        number = number / 10;
+    }
+
+    printf("\n");
+    return 0;
+};
+
+/*
+11- Write program that calculates th esum of the
+digits of an integer.
+*/
+int sum_digits()
+{
+    int n, sum, right_digit;
+    sum = 0;
+    printf("Enter a whole number: \n");
+    scanf("%d", &n);
+
+    int is_negative = n < 0;
+    int num = n < 0 ? -n : n;
+
+    while (num != 0)
+    {
+        right_digit = num % 10;
+        sum += right_digit;
+        num /= 10;
+    }
+
+    if (is_negative)
+    {
+        printf("The sum of negative digits: %d\n", -sum);
+    }
+    else
+    {
+        printf("The sum of digits: %d\n", sum);
+    }
+
+    return 0;
+}
+
 int main()
 {
     table();
@@ -165,6 +245,9 @@ int main()
     table_2();
     // usd_formatter();
     // get_triangular_v2();
-    get_triangular_v3();
+    // get_triangular_v3();
+    get_200th_triangular_num_v2();
+    // reverse_digits();
+    sum_digits();
     return 0;
 };
